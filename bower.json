@@ -1,0 +1,25 @@
+{
+  "name": "react-loader-mixin",
+  "description": "React mixin that displays a spinner via spin.js until your component is loaded",
+  "version": "1.0.0",
+  "main": "lib/react-loader-mixin.js",
+  "keywords": [
+    "react",
+    "mixin",
+    "loader",
+    "spinner",
+    "spin",
+    "spinjs",
+    "spin.js"
+  ],
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "authors": [
+    "Matt Huggins <mhuggins@quickleft.com>"
+  ],
+  "homepage": "https://github.com/quickleft/react-loader-mixin",
+  "license": "MIT"
+}
