@@ -21,5 +21,8 @@
     "Matt Huggins <mhuggins@quickleft.com>"
   ],
   "homepage": "https://github.com/quickleft/react-loader-mixin",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "spin": "~1.1.6"
+  }
 }
