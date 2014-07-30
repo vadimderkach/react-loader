@@ -23,6 +23,6 @@
   "homepage": "https://github.com/quickleft/react-loader-mixin",
   "license": "MIT",
   "dependencies": {
-    "spin": "~1.1.6"
+    "spin.js": "~2.0.1"
   }
 }
