@@ -36,7 +36,7 @@ This will expose several methods to your component:
   accepts two parameters:
 
     * JSX (or a React component) and
-    * an options object per the [spin.js documentation](http://fgnass.github.io/spin.js/))
+    * an options object per the [spin.js documentation](http://fgnass.github.io/spin.js/)
 
 * `setLoaded()`: This method should be called to notify your component that
   loading has completed.  By default, it is assumed that your component is not
