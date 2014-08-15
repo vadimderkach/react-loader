@@ -4,36 +4,33 @@ var React = require('react');
 var Loader = require('../../lib/react-loader');
 var expect = require('chai').expect;
 
-var loader;
-
 describe('Loader', function () {
-  describe('before loaded', function () {
-    beforeEach(function () {
-      loader = <Loader loaded={false}>Welcome</Loader>;
-      React.renderComponent(loader, document.body);
-    });
+  var testCases = [{
+    description: 'loading is in progress',
+    options: { loaded: false },
+    expectedOutput: /<div class="loader".*<div class="spinner"/
+  },
+  {
+    description: 'loading is in progress with spinner options',
+    options: { loaded: false, radius: 17, width: 900 },
+    expectedOutput: /<div class="loader"[^>]*?><div class="spinner"[^>]*?>.*translate\(17px, 0px\).*style="[^"]*?height: 900px;/
+  },
+  {
+    describe: 'loading is complete',
+    options: { loaded: true },
+    expectedOutput: /<div[^>]*>Welcome<\/div>/
+  }];
 
-    it('renders the loader', function () {
-      expect(document.body.innerHTML).to.match(/<div class="loader"/);
-    });
+  testCases.forEach(function (testCase) {
+    describe(testCase.description, function () {
+      beforeEach(function () {
+        var loader = new Loader(testCase.options, 'Welcome');
+        React.renderComponent(loader, document.body);
+      });
 
-    it('does not render the content', function () {
-      expect(document.body.innerHTML).to.not.match(/Welcome/);
-    });
-  });
-
-  describe('after loaded', function () {
-    beforeEach(function () {
-      loader = <Loader loaded={true}>Welcome</Loader>;
-      React.renderComponent(loader, document.body);
-    });
-
-    it('does not render the loader', function () {
-      expect(document.body.innerHTML).to.not.match(/<div class="loader"/);
-    });
-
-    it('renders the content', function () {
-      expect(document.body.innerHTML).to.match(/Welcome/);
+      it('renders the correct output', function () {
+        expect(document.body.innerHTML).to.match(testCase.expectedOutput);
+      })
     });
   });
 });
