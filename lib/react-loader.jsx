@@ -13,13 +13,8 @@
 }(this, function (React, Spinner) {
 
   var Loader = React.createClass({
-    statics: {
-      options: ['lines', 'length', 'width', 'radius', 'corners', 'rotate',
-                'direction', 'color', 'speed', 'trail', 'shadow', 'hwaccell',
-                'className', 'zIndex', 'top', 'left']
-    },
-
     propTypes: {
+      loaded:    React.PropTypes.bool,
       lines:     React.PropTypes.number,
       length:    React.PropTypes.number,
       width:     React.PropTypes.number,
@@ -62,7 +57,10 @@
       }
 
       // update spinner options, if supplied
-      this.type.options.forEach(function (key) {
+      var allowedOptions = Object.keys(this.constructor.propTypes);
+      allowedOptions.splice(allowedOptions.indexOf('loaded'), 1);
+
+      allowedOptions.forEach(function (key) {
         if (key in props) {
           options[key] = props[key];
         }
@@ -76,6 +74,8 @@
         var spinner = new Spinner(this.state.options);
         var target = this.refs.loader.getDOMNode();
 
+        // clear out any other spinners from previous renders
+        target.innerHTML = '';
         spinner.spin(target);
       }
     },
