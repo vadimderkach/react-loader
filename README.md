@@ -1,84 +1,76 @@
-# react-loader-mixin
+# react-loader
 
-react-loader-mixin provides your [React.js](http://facebook.github.io/react/)
+react-loader provides your [React.js](http://facebook.github.io/react/)
 component a simple mechanism for rendering a loading spinner (via
 [spin.js](http://fgnass.github.io/spin.js/)) while data is loading, such as an
 asynchronous request to load data for a view.
 
 ## Installation
 
-react-loader-mixin is available through both [Bower](http://bower.io/) and
+react-loader is available through both [Bower](http://bower.io/) and
 [npm](https://www.npmjs.org/) via:
 
-    npm install react-loader-mixin
+    npm install react-loader
 
 or:
 
-    bower install react-loader-mixin
+    bower install react-loader
 
 Be sure to include the `--save` option to add this as a dependency in your
 application's `package.json` or `bower.json` file.
 
 ## Usage
 
-Add the mixin to your React component, and wrap the code that is dependent on
-load being completed within your .
+Wrap the Loader component around your loading content within your React
+component's `render` function.
 
-    var ReactLoaderMixin = require('react-loader-mixin');
+    /** @jsx React.DOM */
+    var ReactLoader = require('react-loader');
 
     var MyComponent = React.createClass({
-      mixins: [ReactLoaderMixin]
-    });
-
-This will expose several methods to your component:
-
-* `renderIfLoaded()`: This method should be called from inside `render()`.  It
-  accepts two parameters:
-
-    * JSX (or a React component) and
-    * an options object per the [spin.js documentation](http://fgnass.github.io/spin.js/)
-
-* `setLoaded()`: This method should be called to notify your component that
-  loading has completed.  By default, it is assumed that your component is not
-  loaded when it mounts.  It accepts a boolean argument to denote whether or not
-  loading has completed or assumes `true` if no arguments are passed.
-
-* `isLoaded()`: This method returns the boolean defining whether or not your
-  component is in a loaded state.
-
-Here's a fully implemented example of how you might use this while waiting for
-an asynchronous fetch call to complete.
-
-    var React = require('react');
-    var ReactLoaderMixin = require('react-loader-mixin');
-    var InterestCollection = require('./collections/interest-collection');
-
-    var InterestEditor = React.createClass({
-      mixins: [ReactLoaderMixin],
-
       getInitialState: function () {
-        return { interests: [] };
+        return { loaded: false, profile: null };
       },
 
       componentDidMount: function () {
-        new InterestCollection().fetch({ success: this.onInterestsLoaded });
+        new Profile({ id: this.props.id }).fetch({
+          success: this.onSuccess,
+          error: this.onError
+        })
       },
 
-      onInterestsLoaded: function (interests) {
-        this.setState({ interests: interests });
-        this.setLoaded();
+      onSuccess: function (profile) {
+        this.setState({ profile: profile, loaded: true });
+      },
+
+      onError: function (err) {
+        // error handling goes here
       },
 
       render: function () {
         return (
-          <div className="interest-editor">
-            {this.renderIfLoaded(
-              <InterestList interests={this.state.interests}/>
-            )}
-          </div>
+          <Container>
+            <Header>My Profile</Header>
+
+            <Loader loaded={this.state.loaded}>
+              <Profile model={this.state.profile} />
+            </Loader>
+          </Container>
         );
       }
     });
+
+### Options
+
+Options can be passed to the Loader component as properties.  The Loader accepts
+a `loaded` boolean that specified whether the spinner or content should be
+displayed, defaulting to `false`.  Additionally, all options available to
+spin.js are available to this component.
+
+    <Loader loaded={false} lines={13} length={20} width={10} radius={30}
+            corners={1} rotate={0} direction={1} color="#000" speed={1}
+            trail={60} shadow={false} hwaccel={false} className="spinner"
+            zIndex={2e9} top="50%" left="50%" />
 
 ### Styling
 
@@ -88,19 +80,13 @@ some CSS like the following:
 
     .loader {
       position: fixed;
-      top: 50%;
-      left: 50%;
-      width: 100px;
-      height: 100px;
-      margin-top: -50px;
-      margin-left: -50px;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: white;
+      z-index: 9999;
     }
-
-## Testing
-
-Tests can be run via:
-
-    npm test
 
 ## Contributing
 
@@ -108,10 +94,13 @@ To contribute:
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Added some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+3. Add your changes to the `lib/react-loader.js` file along with associated
+   tests under `test/spec/react-loader-test.js`.
+4. Build any JSX changes to JS (`npm run build`), and run tests (`npm test`).
+5. Commit your changes (`git commit -am 'Added some feature'`)
+6. Push to the branch (`git push origin my-new-feature`)
+7. Create new Pull Request
 
 ## License
 
-react-loader-mixin is released under the [MIT License](http://opensource.org/licenses/MIT).
+react-loader is released under the [MIT License](http://opensource.org/licenses/MIT).

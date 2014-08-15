@@ -1,4 +1,4 @@
-require('./react-loader-mixin-test');
+require('./react-loader-test');
 
 if (window.mochaPhantomJS) {
   mochaPhantomJS.run();
