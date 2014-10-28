@@ -64,37 +64,37 @@ component's `render` function.
 
 Options can be passed to the Loader component as properties.  The Loader accepts
 a `loaded` boolean that specified whether the spinner or content should be
-displayed, defaulting to `false`. Additionally, all options available to
-spin.js are available to this component.
+displayed, defaulting to `false`.  Additionally, all options available to
+spin.js are available to this component in two ways.
 
-You can either pass each option as a property:
+1. First, you can pass each option onto the loader as individual properties:
 
-    <Loader loaded={false} lines={13} length={20} width={10} radius={30}
-       corners={1} rotate={0} direction={1} color="#000" speed={1}
-       trail={60} shadow={false} hwaccel={false} className="spinner"
-       zIndex={2e9} top="50%" left="50%" />
+        <Loader loaded={false} lines={13} length={20} width={10} radius={30}
+                corners={1} rotate={0} direction={1} color="#000" speed={1}
+                trail={60} shadow={false} hwaccel={false} className="spinner"
+                zIndex={2e9} top="50%" left="50%" />
 
-Or use an options object with the options key:
+2. Alternatively, you can use supply an object using the `options` key:
 
-    var options = {
-        lines: 13,
-        length: 20,
-        width: 10,
-        radius: 30,
-        corners: 1,
-        rotate: 0,
-        direction: 1,
-        color: '#000',
-        speed: 1,
-        trail: 60,
-        shadow: false,
-        hwaccel: false,
-        zIndex: 2e9,
-        top: '50%',
-        left: '50%'
-    };
+        var options = {
+            lines: 13,
+            length: 20,
+            width: 10,
+            radius: 30,
+            corners: 1,
+            rotate: 0,
+            direction: 1,
+            color: '#000',
+            speed: 1,
+            trail: 60,
+            shadow: false,
+            hwaccel: false,
+            zIndex: 2e9,
+            top: '50%',
+            left: '50%'
+        };
 
-    <Loader loaded={false} options={options} className="spinner" />
+        <Loader loaded={false} options={options} className="spinner" />
 
 ### Styling
 

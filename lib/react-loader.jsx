@@ -15,6 +15,7 @@
   var Loader = React.createClass({
     propTypes: {
       loaded:    React.PropTypes.bool,
+      options:   React.PropTypes.object,
       lines:     React.PropTypes.number,
       length:    React.PropTypes.number,
       width:     React.PropTypes.number,
@@ -55,6 +56,11 @@
       if ('loaded' in props) {
         loaded = !!props.loaded;
       }
+
+      // update spinner options, if supplied
+      var allowedOptions = Object.keys(this.constructor.propTypes);
+      allowedOptions.splice(allowedOptions.indexOf('loaded'), 1);
+      allowedOptions.splice(allowedOptions.indexOf('options'), 1);
 
       // allows passing options as either props or as an option object
       var propsOrObjectOptions = 'options' in props ? props.options : props;
