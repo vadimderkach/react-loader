@@ -7,24 +7,33 @@ var expect = require('chai').expect;
 describe('Loader', function () {
   var testCases = [{
     description: 'loading is in progress',
-    options: { loaded: false },
+    props: { loaded: false },
     expectedOutput: /<div class="loader".*<div class="spinner"/
   },
   {
     description: 'loading is in progress with spinner options',
-    options: { loaded: false, radius: 17, width: 900 },
+    props: { loaded: false, radius: 17, width: 900 },
     expectedOutput: /<div class="loader"[^>]*?><div class="spinner"[^>]*?>.*translate\(17px, 0px\).*style="[^"]*?height: 900px;/
   },
   {
-    describe: 'loading is complete',
-    options: { loaded: true },
+    description: 'loading is in progress with spinner options and options object is used instead of props',
+    props: {
+        loaded: false,
+        width: 900,
+        options: { width: 200 }
+    },
+    expectedOutput: /<div class="loader"[^>]*?><div class="spinner"[^>]*?>.*style="[^"]*?height: 200px;/
+  },
+  {
+    description: 'loading is complete',
+    props: { loaded: true },
     expectedOutput: /<div[^>]*>Welcome<\/div>/
   }];
 
   testCases.forEach(function (testCase) {
     describe(testCase.description, function () {
       beforeEach(function () {
-        var loader = new Loader(testCase.options, 'Welcome');
+        var loader = new Loader(testCase.props, 'Welcome');
         React.renderComponent(loader, document.body);
       });
 

@@ -56,13 +56,12 @@
         loaded = !!props.loaded;
       }
 
-      // update spinner options, if supplied
-      var allowedOptions = Object.keys(this.constructor.propTypes);
-      allowedOptions.splice(allowedOptions.indexOf('loaded'), 1);
+      // allows passing options as either props or as an option object
+      var propsOrObjectOptions = 'options' in props ? props.options : props;
 
       allowedOptions.forEach(function (key) {
-        if (key in props) {
-          options[key] = props[key];
+        if (key in propsOrObjectOptions) {
+          options[key] = propsOrObjectOptions[key];
         }
       });
 
