@@ -18,6 +18,9 @@
     "globals",
     "node"
   ],
+  "dependencies": {
+    "spin.js": "2.x"
+  },
   "authors": [
     "Matt Huggins <mhuggins@quickleft.com>"
   ],
