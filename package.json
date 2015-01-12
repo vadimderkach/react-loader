@@ -41,8 +41,8 @@
     "chai": "^1.9.1",
     "es5-shim": "^4.0.1",
     "mocha-phantomjs": "^3.5.0",
-    "react": "^0.10.0",
-    "react-tools": "^0.11.1",
+    "react": "^0.12.2",
+    "react-tools": "^0.12.2",
     "reactify": "^0.14.0"
   }
 }

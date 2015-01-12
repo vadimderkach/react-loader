@@ -33,8 +33,8 @@ describe('Loader', function () {
   testCases.forEach(function (testCase) {
     describe(testCase.description, function () {
       beforeEach(function () {
-        var loader = new Loader(testCase.props, 'Welcome');
-        React.renderComponent(loader, document.body);
+        var loader = React.createElement(Loader, testCase.props, 'Welcome');
+        React.render(loader, document.body);
       });
 
       it('renders the correct output', function () {
