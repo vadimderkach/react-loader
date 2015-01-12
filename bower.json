@@ -19,7 +19,7 @@
     "node"
   ],
   "dependencies": {
-    "spin.js": "1.x"
+    "spin.js": "2.x"
   },
   "authors": [
     "Matt Huggins <mhuggins@quickleft.com>"
