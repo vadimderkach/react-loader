@@ -25,7 +25,7 @@ Wrap the Loader component around your loading content within your React
 component's `render` function.
 
     /** @jsx React.DOM */
-    var ReactLoader = require('react-loader');
+    var Loader = require('react-loader');
 
     var MyComponent = React.createClass({
       getInitialState: function () {
