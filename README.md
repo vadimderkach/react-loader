@@ -25,7 +25,7 @@ Wrap the Loader component around your loading content within your React
 component's `render` function.
 
     /** @jsx React.DOM */
-    var ReactLoader = require('react-loader');
+    var Loader = require('react-loader');
 
     var MyComponent = React.createClass({
       getInitialState: function () {
@@ -118,7 +118,7 @@ To contribute:
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Add your changes to the `lib/react-loader.js` file along with associated
+3. Add your changes to the `lib/react-loader.jsx` file along with associated
    tests under `test/spec/react-loader-test.js`.
 4. Build any JSX changes to JS (`npm run build`), and run tests (`npm test`).
 5. Commit your changes (`git commit -am 'Added some feature'`)
