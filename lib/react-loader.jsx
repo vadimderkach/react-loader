@@ -87,7 +87,7 @@
 
     render: function () {
       if (this.state.loaded) {
-        return ( <div key="content">{this.props.children}</div> );
+        return ( <div key="content" className="loadedContent">{this.props.children}</div> );
       } else {
         return ( <div key="loader" ref="loader" className="loader"></div> );
       }

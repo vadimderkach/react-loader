@@ -27,7 +27,7 @@ describe('Loader', function () {
   {
     description: 'loading is complete',
     props: { loaded: true },
-    expectedOutput: /<div[^>]*>Welcome<\/div>/
+    expectedOutput: /<div class="loadedContent"[^>]*>Welcome<\/div>/
   }];
 
   testCases.forEach(function (testCase) {
