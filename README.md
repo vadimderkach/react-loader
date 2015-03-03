@@ -64,8 +64,9 @@ component's `render` function.
 
 Options can be passed to the Loader component as properties.  The Loader accepts
 a `loaded` boolean that specified whether the spinner or content should be
-displayed, defaulting to `false`.  Additionally, all options available to
-spin.js are available to this component in two ways.
+displayed, defaulting to `false`.  It also accepts a `component` property to
+specify the DOM node, defaulting to `"div"`.  Additionally, all options
+available to spin.js are available to this component in two ways.
 
 1. First, you can pass each option onto the loader as individual properties:
 
@@ -98,9 +99,10 @@ spin.js are available to this component in two ways.
 
 ### Styling
 
-The loader is rendered inside a DIV element with class "loader".  A simple
-solution for rendering the spinner on the center of your screen would be to use
-some CSS like the following:
+The loader is rendered inside a DIV element (unless otherwise specified via the
+`component` property mentioned earlier) with class "loader".  A simple solution
+for rendering the spinner on the center of your screen would be to use some CSS
+like the following:
 
     .loader {
       position: fixed;
@@ -111,6 +113,9 @@ some CSS like the following:
       background: white;
       z-index: 9999;
     }
+
+Once the content is loaded and the spinner is removed, the DOM node is given a
+class of "loadedContent".
 
 ## Contributing
 

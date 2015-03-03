@@ -8,7 +8,12 @@ describe('Loader', function () {
   var testCases = [{
     description: 'loading is in progress',
     props: { loaded: false },
-    expectedOutput: /<div class="loader".*<div class="spinner"/
+    expectedOutput: /<div class="loader"[^>]*?><div class="spinner"/
+  },
+  {
+    description: 'loading is in progress with component option',
+    props: { loaded: false, component: 'span' },
+    expectedOutput: /<span class="loader"[^>]*?><div class="spinner"/
   },
   {
     description: 'loading is in progress with spinner options',
@@ -28,6 +33,11 @@ describe('Loader', function () {
     description: 'loading is complete',
     props: { loaded: true },
     expectedOutput: /<div class="loadedContent"[^>]*>Welcome<\/div>/
+  },
+  {
+    description: 'loading is complete with component option',
+    props: { loaded: true, component: 'span' },
+    expectedOutput: /<span class="loadedContent"[^>]*?>Welcome<\/span>/
   }];
 
   testCases.forEach(function (testCase) {

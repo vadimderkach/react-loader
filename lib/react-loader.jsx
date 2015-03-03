@@ -14,6 +14,7 @@
 
   var Loader = React.createClass({
     propTypes: {
+      component: React.PropTypes.any,
       loaded:    React.PropTypes.bool,
       options:   React.PropTypes.object,
       lines:     React.PropTypes.number,
@@ -32,6 +33,10 @@
       zIndex:    React.PropTypes.number,
       top:       React.PropTypes.string,
       left:      React.PropTypes.string
+    },
+
+    getDefaultProps: function () {
+      return { component: 'div' };
     },
 
     getInitialState: function () {
@@ -86,11 +91,16 @@
     },
 
     render: function () {
+      var props, children;
+
       if (this.state.loaded) {
-        return ( <div key="content" className="loadedContent">{this.props.children}</div> );
+        props = { key: 'content', className: 'loadedContent' };
+        children = this.props.children;
       } else {
-        return ( <div key="loader" ref="loader" className="loader"></div> );
+        props = { key: 'loader', ref: 'loader', className: 'loader' };
       }
+
+      return React.createElement(this.props.component, props, children);
     }
   });
 
