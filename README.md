@@ -27,41 +27,42 @@ application's `package.json` or `bower.json` file.
 Wrap the Loader component around your loading content within your React
 component's `render` function.
 
-    /** @jsx React.DOM */
-    var Loader = require('react-loader');
+```jsx
+/** @jsx React.DOM */
+var Loader = require('react-loader');
 
-    var MyComponent = React.createClass({
-      getInitialState: function () {
-        return { loaded: false, profile: null };
-      },
+var MyComponent = React.createClass({
+  getInitialState: function () {
+    return { loaded: false, profile: null };
+  },
 
-      componentDidMount: function () {
-        new Profile({ id: this.props.id }).fetch({
-          success: this.onSuccess,
-          error: this.onError
-        })
-      },
+  componentDidMount: function () {
+    new Profile({ id: this.props.id }).fetch({
+      success: this.onSuccess,
+      error: this.onError
+    })
+  },
 
-      onSuccess: function (profile) {
-        this.setState({ profile: profile, loaded: true });
-      },
+  onSuccess: function (profile) {
+    this.setState({ profile: profile, loaded: true });
+  },
 
-      onError: function (err) {
-        // error handling goes here
-      },
+  onError: function (err) {
+    // error handling goes here
+  },
 
-      render: function () {
-        return (
-          <Container>
-            <Header>My Profile</Header>
-
+  render: function () {
+    return (
+      <Container>
+        <Header>My Profile</Header>
             <Loader loaded={this.state.loaded}>
               <Profile model={this.state.profile} />
             </Loader>
-          </Container>
-        );
-      }
-    });
+      </Container>
+    );
+  }
+});
+```
 
 ### Options
 
@@ -73,33 +74,37 @@ available to spin.js are available to this component in two ways.
 
 1. First, you can pass each option onto the loader as individual properties:
 
-        <Loader loaded={false} lines={13} length={20} width={10} radius={30}
-                corners={1} rotate={0} direction={1} color="#000" speed={1}
-                trail={60} shadow={false} hwaccel={false} className="spinner"
-                zIndex={2e9} top="50%" left="50%" scale={1.00} />
+```jsx
+<Loader loaded={false} lines={13} length={20} width={10} radius={30}
+    corners={1} rotate={0} direction={1} color="#000" speed={1}
+    trail={60} shadow={false} hwaccel={false} className="spinner"
+    zIndex={2e9} top="50%" left="50%" scale={1.00} />
+```
 
 2. Alternatively, you can use supply an object using the `options` key:
 
-        var options = {
-            lines: 13,
-            length: 20,
-            width: 10,
-            radius: 30,
-            corners: 1,
-            rotate: 0,
-            direction: 1,
-            color: '#000',
-            speed: 1,
-            trail: 60,
-            shadow: false,
-            hwaccel: false,
-            zIndex: 2e9,
-            top: '50%',
-            left: '50%',
-            scale: 1.00
-        };
+```jsx
+var options = {
+    lines: 13,
+    length: 20,
+    width: 10,
+    radius: 30,
+    corners: 1,
+    rotate: 0,
+    direction: 1,
+    color: '#000',
+    speed: 1,
+    trail: 60,
+    shadow: false,
+    hwaccel: false,
+    zIndex: 2e9,
+    top: '50%',
+    left: '50%',
+    scale: 1.00
+};
 
-        <Loader loaded={false} options={options} className="spinner" />
+<Loader loaded={false} options={options} className="spinner" />
+```
 
 ### Styling
 
@@ -108,15 +113,17 @@ The loader is rendered inside a DIV element (unless otherwise specified via the
 for rendering the spinner on the center of your screen would be to use some CSS
 like the following:
 
-    .loader {
-      position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background: white;
-      z-index: 9999;
-    }
+```css
+.loader {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: white;
+  z-index: 9999;
+}
+```
 
 Once the content is loaded and the spinner is removed, the DOM node is given a
 class of "loadedContent".
