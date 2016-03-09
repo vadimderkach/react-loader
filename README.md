@@ -1,4 +1,4 @@
-# react-loader
+# react-loader [![Circle CI](https://circleci.com/gh/quickleft/react-loader.svg?style=svg)](https://circleci.com/gh/quickleft/react-loader)
 
 react-loader provides your [React.js](http://facebook.github.io/react/)
 component a simple mechanism for rendering a loading spinner (via
