@@ -38,6 +38,11 @@ describe('Loader', function () {
     description: 'loading is complete with component option',
     props: { loaded: true, component: 'span' },
     expectedOutput: /<span class="loadedContent"[^>]*?>Welcome<\/span>/
+  },
+  {
+    description: 'a custom className can be passed to the loaded content',
+    props: { loaded: true, loadedClassName: 'my-class' },
+    expectedOutput: /<div class="my-class"[^>]*?>Welcome<\/div>/
   }];
 
   testCases.forEach(function (testCase) {

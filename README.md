@@ -78,7 +78,8 @@ available to spin.js are available to this component in two ways.
 <Loader loaded={false} lines={13} length={20} width={10} radius={30}
     corners={1} rotate={0} direction={1} color="#000" speed={1}
     trail={60} shadow={false} hwaccel={false} className="spinner"
-    zIndex={2e9} top="50%" left="50%" scale={1.00} />
+    zIndex={2e9} top="50%" left="50%" scale={1.00}
+    loadedClassName="loadedContent" />
 ```
 
 2. Alternatively, you can use supply an object using the `options` key:
@@ -126,7 +127,8 @@ like the following:
 ```
 
 Once the content is loaded and the spinner is removed, the DOM node is given a
-class of "loadedContent".
+class of "loadedContent" (which is customizable by specifying the
+`loadedClassName` property).
 
 ## Contributing
 
