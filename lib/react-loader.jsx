@@ -12,31 +12,36 @@
 
   var Loader = React.createClass({
     propTypes: {
-      component:       React.PropTypes.any,
-      loaded:          React.PropTypes.bool,
-      options:         React.PropTypes.object,
-      scale:           React.PropTypes.number,
-      lines:           React.PropTypes.number,
-      length:          React.PropTypes.number,
-      width:           React.PropTypes.number,
-      radius:          React.PropTypes.number,
-      corners:         React.PropTypes.number,
-      rotate:          React.PropTypes.number,
-      direction:       React.PropTypes.oneOf([1, -1]),
-      color:           React.PropTypes.string,
-      speed:           React.PropTypes.number,
-      trail:           React.PropTypes.number,
-      shadow:          React.PropTypes.bool,
-      hwaccell:        React.PropTypes.bool,
       className:       React.PropTypes.string,
-      zIndex:          React.PropTypes.number,
-      top:             React.PropTypes.string,
+      color:           React.PropTypes.string,
+      component:       React.PropTypes.any,
+      corners:         React.PropTypes.number,
+      direction:       React.PropTypes.oneOf([1, -1]),
+      hwaccell:        React.PropTypes.bool,
       left:            React.PropTypes.string,
-      loadedClassName: React.PropTypes.string
+      length:          React.PropTypes.number,
+      lines:           React.PropTypes.number,
+      loaded:          React.PropTypes.bool,
+      loadedClassName: React.PropTypes.string,
+      options:         React.PropTypes.object,
+      parentClassName: React.PropTypes.string,
+      radius:          React.PropTypes.number,
+      rotate:          React.PropTypes.number,
+      scale:           React.PropTypes.number,
+      shadow:          React.PropTypes.bool,
+      speed:           React.PropTypes.number,
+      top:             React.PropTypes.string,
+      trail:           React.PropTypes.number,
+      width:           React.PropTypes.number,
+      zIndex:          React.PropTypes.number
     },
 
     getDefaultProps: function () {
-      return { component: 'div', loadedClassName: 'loadedContent' };
+      return {
+        component: 'div',
+        loadedClassName: 'loadedContent',
+        parentClassName: 'loader'
+      };
     },
 
     getInitialState: function () {
@@ -97,7 +102,7 @@
         props = { key: 'content', className: this.props.loadedClassName };
         children = this.props.children;
       } else {
-        props = { key: 'loader', ref: 'loader', className: 'loader' };
+        props = { key: 'loader', ref: 'loader', className: this.props.parentClassName };
       }
 
       return React.createElement(this.props.component, props, children);

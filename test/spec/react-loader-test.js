@@ -16,6 +16,16 @@ describe('Loader', function () {
     expectedOutput: /<span class="loader"[^>]*?><div class="spinner"/
   },
   {
+    description: 'loading is in progress with custom className on the loader component',
+    props: { loaded: false, parentClassName: 'my-loader-class' },
+    expectedOutput: /<div class="my-loader-class"[^>]*?><div class="spinner"/
+  },
+  {
+    description: 'loading is in progress with custom className on the spinner component',
+    props: { loaded: false, className: 'my-spinner-class' },
+    expectedOutput: /<div class="loader"[^>]*?><div class="my-spinner-class"/
+  },
+  {
     description: 'loading is in progress with spinner options',
     props: { loaded: false, radius: 17, width: 900 },
     expectedOutput: /<div class="loader"[^>]*?><div class="spinner"[^>]*?>.*translate\(17px, 0px\).*style="[^"]*?height: 900px;/
