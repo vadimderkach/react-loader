@@ -23,6 +23,7 @@
       lines:           React.PropTypes.number,
       loaded:          React.PropTypes.bool,
       loadedClassName: React.PropTypes.string,
+      opacity:         React.PropTypes.number,
       options:         React.PropTypes.object,
       parentClassName: React.PropTypes.string,
       radius:          React.PropTypes.number,
