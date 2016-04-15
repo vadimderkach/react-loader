@@ -1,13 +1,22 @@
 #### What does this PR do?
+Adds a demo.
 
 #### Where should the reviewer start?
+Open demo/index.html in a browser - no `npm install` or other build steps necessary.
 
 #### How should this be manually tested?
+You can restart the demo with the reload button. The button should be disabled while loading, and the loader should load in 1500ms.
 
 #### Any background context you want to provide?
+React, ReactDOM, Spin.JS, and a Babel compiler all reference a CDN to avoid any build process for the demo. The Babel compiler was necessary for JSX syntax (wanted to stay consistent with the README).
+
+Also updated the README with a mention of the demo and a gif.
 
 #### What are the relevant issues (if any)?
+#23
 
 #### Screenshots (if appropriate)
+See `demo/demo.gif`
 
 #### Obligatory GIF
+See `demo/demo.gif`
