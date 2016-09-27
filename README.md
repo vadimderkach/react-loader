@@ -130,7 +130,7 @@ Once the content is loaded and the spinner is removed, the DOM node is given a
 class of "loadedContent" (which is customizable by specifying the
 `loadedClassName` property).
 
-[##Examples](/examples/README.md)
+##[Examples](/examples/README.md)
 
 ## Contributing
 
