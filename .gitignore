@@ -2,3 +2,5 @@
 /node_modules
 /lib/.module-cache
 /test/bundle.js
+.idea
+
