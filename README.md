@@ -130,6 +130,11 @@ Once the content is loaded and the spinner is removed, the DOM node is given a
 class of "loadedContent" (which is customizable by specifying the
 `loadedClassName` property).
 
+### Demo
+
+To view the demo open demo/index.html in any browser.
+![spinner demo](https://github.com/quickleft/react-loader/demo/demo.gif)
+
 ## Contributing
 
 To contribute:
