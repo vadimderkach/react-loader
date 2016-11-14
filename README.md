@@ -1,12 +1,12 @@
-# react-loader [![Circle CI](https://circleci.com/gh/quickleft/react-loader.svg?style=svg)](https://circleci.com/gh/quickleft/react-loader)
+# react-loader [![CircleCI](https://circleci.com/gh/TheCognizantFoundry/react-loader.svg?style=svg)](https://circleci.com/gh/TheCognizantFoundry/react-loader)
 
 react-loader provides your [React.js](http://facebook.github.io/react/)
 component a simple mechanism for rendering a loading spinner (via
 [spin.js](http://fgnass.github.io/spin.js/)) while data is loading, such as an
 asynchronous request to load data for a view.
 
-> Important Note: The 2.x branch is compatible with React 1.4 and higher. If
-> you're working with an older version of React, please use the 1.x branch.
+> Important Note: The 2.x tagged release is compatible with React 1.4 and higher. If
+> you're working with an older version of React, please use the 1.x release.
 
 ## Installation
 
@@ -132,8 +132,8 @@ class of "loadedContent" (which is customizable by specifying the
 
 ### Demo
 
-To view the demo open demo/index.html in any browser.
-![spinner demo](https://github.com/quickleft/react-loader/demo/demo.gif)
+To view the demo open demo/index.html in any browser.  
+![spinner demo](/demo/demo.gif)
 
 ## Contributing
 
