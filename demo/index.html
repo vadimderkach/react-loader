@@ -27,7 +27,7 @@
 </head>
 <body>
   <div id="demo">Something went wrong.</div>
-  
+
   <script type="text/babel">
 
     const Demo = React.createClass({
@@ -38,6 +38,7 @@
         this.simulateLoad();
       },
       simulateLoad: function() {
+        this.setState({ loaded: false })
         // Simulated a response callback/promise/etc.
         setTimeout(function() {
           this.onSuccess('Hello World!');
@@ -58,7 +59,7 @@
       }
     })
     ReactDOM.render(<Demo />, document.getElementById('demo'));
-    
+
   </script>
 </body>
 </html>
