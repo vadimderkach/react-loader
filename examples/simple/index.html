@@ -31,12 +31,14 @@
   <script type="text/babel">
 
     const Demo = React.createClass({
-      getInitialState: function () {
+      getInitialState: function() {
         return { loaded: false, data: null };
       },
+
       componentDidMount: function() {
         this.simulateLoad();
       },
+
       simulateLoad: function() {
         this.setState({ loaded: false })
         // Simulated a response callback/promise/etc.
@@ -44,20 +46,23 @@
           this.onSuccess('Hello World!');
         }.bind(this), 1500);
       },
-      onSuccess: function (data) {
+
+      onSuccess: function(data) {
         this.setState({ loaded: true, data: data });
       },
-      render: function () {
+
+      render: function() {
         return (
           <div className="demo">
-            <Loader loaded={ this.state.loaded }>
-              <div className="card">{ this.state.data }</div>
+            <Loader loaded={this.state.loaded}>
+              <div className="card">{this.state.data}</div>
             </Loader>
-            <button onClick={ this.simulateLoad } disabled={ !this.state.loaded }> Reload </button>
+            <button onClick={this.simulateLoad} disabled={!this.state.loaded}>Reload</button>
           </div>
         );
       }
     })
+
     ReactDOM.render(<Demo />, document.getElementById('demo'));
 
   </script>
