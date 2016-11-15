@@ -2,7 +2,7 @@
 
 ## Simple Example
 
-Open [this file](/simple/index.html) in a browser.
+Open [this file](simple/index.html) in a browser.
 
 ## create-react-app Example
 
