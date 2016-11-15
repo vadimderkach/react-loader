@@ -136,9 +136,9 @@ class of "loadedContent" (which is customizable by specifying the
 ### Demo
 
 To view the demo open demo/index.html in any browser.
-![spinner demo](/demo/demo.gif)
+![spinner demo](/examples/simple/demo.gif)
 
-##[Examples](/examples/README.md)
+## [Examples](/examples/README.md)
 
 ## Contributing
 

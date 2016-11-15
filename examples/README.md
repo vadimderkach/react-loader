@@ -1,20 +1,18 @@
-# Examples 
+# Examples
 
-## Basic Example
+## Simple Example
 
-```
-<Loader loaded={isLoaded}>
-    I will show when loading is finished
-</Loader>
-```
+Open [this file](/simple/index.html) in a browser.
 
-# Running Example
+## create-react-app Example
 
-To run the example run the following from the examples folder:
+To view an example within [create-react-app](https://github.com/facebookincubator/create-react-app/),
 
 ```
-npm i 
-npm run start
+git clone https://github.com/TheCognizantFoundry/react-loader.git
+cd react-loader/examples/create-react-app
+npm install
+npm start
 ```
 
-The open your browser at: `http://localhost:3000/`
+Then view the application in your browser at `http://localhost:3000/`.
