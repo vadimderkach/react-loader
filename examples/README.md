@@ -2,7 +2,7 @@
 
 ## Simple Example
 
-Open [this file](simple/index.html) in a browser.
+Install the repo's dependencies, then open [this file](simple/index.html) in a browser.
 
 ## create-react-app Example
 
