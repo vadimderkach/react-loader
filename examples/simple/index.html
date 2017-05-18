@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>react-loader example</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.1/react.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.1/react-dom.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.16/browser.js"></script>
+  <script src="../../node_modules/react/dist/react.js"></script>
+  <script src="../../node_modules/react-dom/dist/react-dom.js"></script>
+  <script src="../../node_modules/create-react-class/create-react-class.js"></script>
+  <script src="../../node_modules/prop-types/prop-types.js"></script>
+  <script src="../../node_modules/spin.js/spin.js"></script>
   <script src="../../lib/react-loader.js"></script>
 
   <style>
@@ -30,7 +32,7 @@
 
   <script type="text/babel">
 
-    const Demo = React.createClass({
+    const Demo = createReactClass({
       getInitialState: function() {
         return { loaded: false, data: null };
       },
