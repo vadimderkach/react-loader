@@ -3,11 +3,9 @@
   if (typeof define === 'function' && define.amd) {
     define(['react', 'react-dom', 'spin.js', 'prop-types', 'create-react-class'], factory);
   } else if (typeof module === 'object' && typeof module.exports === 'object') {
-    module.exports = factory(require('react'), require('react-dom'), require('spin.js'),
-        require('prop-types'), require('create-react-class'));
+    module.exports = factory(require('react'), require('react-dom'), require('spin.js'), require('prop-types'), require('create-react-class'));
   } else {
-    root.Loader = factory(root.React, root.ReactDOM, root.Spinner, root.PropTypes,
-        root.createReactClass);
+    root.Loader = factory(root.React, root.ReactDOM, root.Spinner, root.PropTypes, root.createReactClass);
   }
 
 }(this, function (React, ReactDOM, Spinner, PropTypes, createReactClass) {
@@ -61,6 +59,10 @@
       this.updateState(nextProps);
     },
 
+    componentWillUnmount: function () {
+      this.setState({ loaded: false });
+    },
+
     updateState: function (props) {
       props || (props = {});
 
@@ -96,7 +98,7 @@
         window.document.createElement
       );
 
-      if (canUseDOM && this.isMounted() && !this.state.loaded) {
+      if (canUseDOM && !this.state.loaded) {
         var spinner = new Spinner(this.state.options);
         var target =  ReactDOM.findDOMNode(this.refs.loader);
 
